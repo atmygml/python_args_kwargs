@@ -1,0 +1,37 @@
+def add_num(*args):
+    total = 0
+    for n in args:
+        total += n
+    return total
+
+
+total_sum = add_num(1, 2, 3, 4, 5)
+print(total_sum)
+
+
+def calculate(num, **kwargs):
+    print(kwargs)
+    print(type(kwargs))
+    print(kwargs["add"])
+    print(kwargs["multiply"])
+    for (key, value) in kwargs.items():
+        print(key)
+        print(value)
+    num += kwargs["add"]
+    print(num)
+
+
+calculate(2, add=56, multiply=23)
+
+
+class Car:
+    def __init__(self, **kw):
+        self.make = kw.get("make")
+        self.model = kw.get("model")
+
+
+my_car = Car(make="Alpha", model="RT")
+my_car002 = Car(make="Volvo")
+
+print(my_car.make)
+print(my_car002.model)
